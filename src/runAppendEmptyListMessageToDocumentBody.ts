@@ -1,3 +1,5 @@
-export function runAppendEmptyListMessageToDocumentBody(emptyListMessage: Element): void {
-    document.body.append(emptyListMessage);
+export function runAppendEmptyListMessageToDocumentBody(
+	emptyListMessage: Element
+): void {
+	document.body.append(emptyListMessage);
 }

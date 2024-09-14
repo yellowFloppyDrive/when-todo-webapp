@@ -30,7 +30,7 @@ export function thenPrependTaskToTodoList(text: string, data: Data) {
 		runAppendTodosListToDocumentBody(data.todosListViews[0]);
 	}
 
-	data.todosListViews.forEach(todosListView => {
+	data.todosListViews.forEach((todosListView) => {
 		todosListView.prepend(task.view);
 	});
 }

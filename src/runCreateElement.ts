@@ -1,13 +1,13 @@
 export function runCreateElement(markup: string): Element {
-    const div = document.createElement("div");
+	const div = document.createElement("div");
 
-    div.innerHTML = markup;
+	div.innerHTML = markup;
 
-    const element = div.firstElementChild;
+	const element = div.firstElementChild;
 
-    if (element instanceof Element) {
-        return element;
-    }
+	if (element instanceof Element) {
+		return element;
+	}
 
-    throw new Error("Invalid HTML!");
+	throw new Error("Invalid HTML!");
 }

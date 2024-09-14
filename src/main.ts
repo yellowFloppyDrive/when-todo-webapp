@@ -4,7 +4,7 @@ import { runCreateTodoForm } from "./runCreateTodoForm";
 import { whenAppStarts } from "./whenAppStarts";
 import { whenTodoFormSubmits } from "./whenTodoFormSubmits";
 import { Task } from "./Todo";
-import { runCreateEmptyListMessage } from"./runCreateEmptyListMessage";
+import { runCreateEmptyListMessage } from "./runCreateEmptyListMessage";
 
 function main() {
 	const data: Data = {

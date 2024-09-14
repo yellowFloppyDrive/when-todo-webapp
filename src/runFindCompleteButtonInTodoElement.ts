@@ -1,5 +1,5 @@
 export function runFindCompleteButtonInTodoElement(
-	todoElement: Element,
+	todoElement: Element
 ): HTMLButtonElement {
 	const button = todoElement.querySelector("button");
 

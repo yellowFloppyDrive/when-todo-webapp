@@ -4,7 +4,7 @@ import { runFindCompleteButtonInTodoElement } from "./runFindCompleteButtonInTod
 export function runCreateTaskElement(
 	text: string,
 	status: string,
-	onCompleteClicked: () => void,
+	onCompleteClicked: () => void
 ): Element {
 	const todoElement = runCreateElement(`
 		<div style="border: 1px solid black; background: white; border-radius: 4px; padding: 1rem; width: 300px; max-width: calc(100% - 2rem);">
