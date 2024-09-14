@@ -1,5 +1,5 @@
 import { Data } from "./Data";
-import { whenTodoElementCompleteButtonClicked } from "./whenTodoElementCompleteButtonClicked.1";
+import { whenTodoElementCompleteButtonClicked } from "./whenTodoElementCompleteButtonClicked";
 import { Task } from "./Todo";
 import { runCreateTaskElement } from "./runCreateTaskElement";
 import { runCreateTodosList } from "./runCreateTodosList";
