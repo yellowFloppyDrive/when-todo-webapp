@@ -1,13 +1,14 @@
 import { Data } from "./Data";
 import { runRemoveCompleteButton } from "./runRemoveCompleteButton";
-import { runUpdateTodoToCompleted } from "./runUpdateTodoToCompleted";
+import { runUpdateTodoStatusLabelToCompleted } from "./runUpdateTodoStatusLabelToCompleted";
 import { runFindStatusLabelInTodo } from "./runFindStatusLabelInTodo";
-import { runFindTodoInTodoList } from "./runFindTodoInTodoList";
 
 export function thenCompleteTodo(id: string, data: Data) {
-	const todo = runFindTodoInTodoList(id, data.todoList);
-	const statusLabel = runFindStatusLabelInTodo(todo);
-	runUpdateTodoToCompleted(statusLabel);
-	runRemoveCompleteButton(todo);
-}
+	const todo = data.todos.get(id);
 
+	if (todo) {
+		const statusLabel = runFindStatusLabelInTodo(todo.view);
+		runUpdateTodoStatusLabelToCompleted(statusLabel);
+		runRemoveCompleteButton(todo.view);
+	}
+}

@@ -1,4 +1,13 @@
+import { Task } from "./Todo";
+
 export type Data = {
-	todoList: Element;
-	todoForm: Element;
+	todoFormView: Element;
+
+	emptyListMessage: Element;
+
+	todos: Map<string, Task>;
+	todosListViews: Element[];
+
+	dones: Map<string, Task>;
+	donesListViews: Element[];
 };

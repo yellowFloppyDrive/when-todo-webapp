@@ -1,28 +1,36 @@
 import { Data } from "./Data";
 import { whenTodoElementCompleteButtonClicked } from "./whenTodoElementCompleteButtonClicked.1";
-import { Todo } from "./Todo";
-import { runCreateTodoElement } from "./runCreateTodoElement";
-import { runFindTodosContainerInTodoList } from "./runFindTodosContainerInTodoList";
+import { Task } from "./Todo";
+import { runCreateTaskElement } from "./runCreateTaskElement";
+import { runCreateTodosList } from "./runCreateTodosList";
+import { runAppendTodosListToDocumentBody } from "./runAppendTodosListToDocumentBody";
 
-export function thenPrependTodoToTodoList(text: string, data: Data) {
-	const todo: Todo = {
-		id: crypto.randomUUID(),
-		text: text,
-		status: "todo",
-	};
+export function thenPrependTaskToTodoList(text: string, data: Data) {
+	const status: string = "todo";
 
-	const todoElement = runCreateTodoElement(todo, () => {
-		whenTodoElementCompleteButtonClicked(todo.id, data);
+	const todoView = runCreateTaskElement(text, status, () => {
+		whenTodoElementCompleteButtonClicked(task.id, data);
 	});
 
-	const emptyMessage = data.todoList.querySelector(
-		'[data-key="todo-list-empty-message"]',
-	);
-	if (emptyMessage instanceof Element) {
-		emptyMessage.remove();
+	const task: Task = {
+		id: crypto.randomUUID(),
+		text: text,
+		status: status,
+		view: todoView,
+		createdAt: new Date().getTime(),
+		completedAt: undefined,
+	};
+
+	data.todos.set(task.id, task);
+
+	data.emptyListMessage.remove();
+
+	if (data.todosListViews.length === 0) {
+		data.todosListViews.push(runCreateTodosList());
+		runAppendTodosListToDocumentBody(data.todosListViews[0]);
 	}
 
-	const todosContainer: Element = runFindTodosContainerInTodoList(data.todoList);
-
-	todosContainer.prepend(todoElement);
+	data.todosListViews.forEach(todosListView => {
+		todosListView.prepend(task.view);
+	});
 }

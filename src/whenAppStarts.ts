@@ -1,8 +1,12 @@
 import { Data } from "./Data";
+import { thenAppendDonesListToDocumentBody } from "./thenAppendDonesListToDocumentBody";
+import { thenAppendEmptyListMessageToDocumentBody } from "./thenAppendEmptyListMessageToDocumentBody";
 import { thenAppendTodoFormToDocumentBody } from "./thenAppendTodoFormToDocumentBody";
-import { thenAppendTodoListToDocumentBody } from "./thenAppendTodoListToDocumentBody";
+import { thenAppendTodosListToDocumentBody } from "./thenAppendTodosListToDocumentBody";
 
 export function whenAppStarts(data: Data): void {
 	thenAppendTodoFormToDocumentBody(data);
-	thenAppendTodoListToDocumentBody(data);
+	thenAppendEmptyListMessageToDocumentBody(data);
+	thenAppendTodosListToDocumentBody(data);
+	thenAppendDonesListToDocumentBody(data);
 }
